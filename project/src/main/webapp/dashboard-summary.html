@@ -13,7 +13,7 @@
     <!-- Custom CSS -->
     <link href="style.css" rel="stylesheet">
 
-    <title>Hello, world!</title>
+    <title>Dashboard Summary</title>
 </head>
 
 <body>
@@ -31,22 +31,21 @@
                 <div class="position-sticky pt-3">
                     <ul class="nav flex-column">
                         <li class="nav-item">
-                            <a class="nav-link active" aria-current="page" href="dashboard.html">
+                            <a class="nav-link active" aria-current="page" href="dashboard-summary.html">
                                 <span data-feather="Summary"></span>
                                 Summary
                             </a>
                         </li>
                         <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button"
-                                aria-haspopup="true" aria-expanded="false">Routines</a>
-                            <div class="dropdown-menu">
-                                <div class="dropdown-divider"></div>
-                                <a class="dropdown-item" href="view-routines.html">View My Routines</a>
-                                <div class="dropdown-divider"></div>
-                                <a class="dropdown-item" href="create-routine">Create Routine</a>
-                                <div class="dropdown-divider"></div>
-                                <a class="dropdown-item" href="explore-routines.html">Explore Routines</a>
-                            </div>
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                                data-bs-toggle="dropdown" aria-expanded="false">Routines</a>
+                            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                <li><a class="dropdown-item" href="view-routines.html">View My Routines</a></li>
+                                <li><div class="dropdown-divider"></div></li>
+                                <li><a class="dropdown-item" href="create-routine.html">Create Routine</a></li>
+                                <li><div class="dropdown-divider"></div></li>
+                                <li><a class="dropdown-item" href="explore-routines.html">Explore Routines</a></li>
+                            </ul>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="take-a-quiz.html">
