@@ -13,8 +13,16 @@
 // limitations under the License.
 
 /**
- * Adds a random greeting to the page.
+ * On button click, show more details about the workout
  */
-function addRandomGreeting() {
+function showWorkoutDetails() {
   console.log("Javascript! Cool. Cool, Cool, Cool.")
+}
+
+/**
+ * On button click, hide extra details about the workout
+ */
+
+function hideWorkoutDetails() {
+    console.log("Hello!")
 }
