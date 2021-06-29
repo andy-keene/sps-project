@@ -13,7 +13,7 @@ import com.google.gson.Gson;
 
 /** Handles requests sent to the /showRoutine URL */
 @WebServlet("/showRoutine")
-public class HelloWorldServlet extends HttpServlet {
+public class predefinedRoutineServlet extends HttpServlet {
 
     @Override
     public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException {
@@ -56,7 +56,7 @@ public class HelloWorldServlet extends HttpServlet {
         Routine backShoulder = new Routine("Ultimate Back/Shoulder Workout",
                 "Do each move for 45 seconds and rest for 15 seconds between each move.", backShoulderMoves, 5);
 
-        ArrayList<Routine> routines = new ArrayList<Routine>(Arrays.asList(cardio, arms, legs, glutes, backShoulder));
+        ArrayList<Routine> routines = new ArrayList<Routine>(Arrays.asList(cardio, arms, legs, abs, glutes, backShoulder));
 
         String json = convertToJson(routines);
 
