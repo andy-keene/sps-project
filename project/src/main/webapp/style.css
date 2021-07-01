@@ -1,7 +1,7 @@
 body{
-    --color-primary: #009579;
-    --color-primary-dark: #007f67;
-    --color-secondary: #252c6a;
+    --color-primary: #2E9CCA;
+    --color-primary-dark: rgb(41, 109, 155);
+    --color-secondary: #18227a;
     --color-error: #cc3333;
     --color-success: #4bb544;
     --border-radius:4px;
