@@ -5,8 +5,8 @@
 // limitations under the License.
 
 //Selects error message within login form
-function setFormMessage(formEmement, type, message) {
-    const messageElement = formEmement.querySelector(".form__message");
+function setFormMessage(formElement, type, message) {
+    const messageElement = formElement.querySelector(".form__message");
 
     messageElement.textContent = message;
     messageElement.classList.remove("form__message--success", "form__message--error");
@@ -54,7 +54,7 @@ document.addEventListener("DOMContentLoaded", () => {
     // error checking for username value
     document.querySelectorAll(".form__input").forEach(inputElement => {
         inputElement.addEventListener("blur", e => {
-            if (e.target.id === "signupUsername" && e.target.value.length > 0 && e.target.value.length < 6) {
+            if (e.target.id === "signupUsername" && e.target.value.length < 6) {
                 setInputError(inputElement, "Username must be at least 6 characters long");
             }
         });
