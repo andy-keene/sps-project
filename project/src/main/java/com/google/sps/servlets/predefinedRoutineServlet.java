@@ -1,5 +1,15 @@
 package com.google.sps.servlets;
 
+
+import com.google.cloud.datastore.Datastore;
+import com.google.cloud.datastore.DatastoreOptions;
+import com.google.cloud.datastore.Entity;
+import com.google.cloud.datastore.FullEntity;
+import com.google.cloud.datastore.KeyFactory;
+import org.jsoup.Jsoup;
+import org.jsoup.safety.Whitelist;
+
+
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -20,7 +30,7 @@ public class predefinedRoutineServlet extends HttpServlet {
 
         // For the time being, the Routines are hard coded into the servlet file
         // Can be improved upon
-
+    
         ArrayList<String> cardioMoves = new ArrayList<String>(
                 Arrays.asList("Dumbbell Swings", "Dumbbell Jack", "Burpee Front Raise", "Plank Jack",
                         "Skater Dumbbell Toss", "Weighted Squat to Lunge", "Plank Jack Row"));
@@ -31,13 +41,13 @@ public class predefinedRoutineServlet extends HttpServlet {
                 Arrays.asList("Shoulder Press With Lunge (Right Leg)", "Elevated Bicep Curls With Lunge (Left Leg)",
                         "Reverse Flyes", "Tricep Pressbacks", "Plank Row", "Prayer Pulse", "Upright Row"));
         Routine arms = new Routine("Extreme Arm Toner",
-                "Do each move for 45 seconds and rest after each move for 15 seconds.", "Arms", armsMoves, 3);
+                "Do each move for 45 seconds and rest after each move for 15 seconds.", "Arms", armsMoves, 3); 
 
         ArrayList<String> legsMoves = new ArrayList<String>(
                 Arrays.asList("Side Lunges (Right Leg)", "Releve Chairs", "Side Lunges (Left Leg)",
                         "Releve Plie Pulses", "Squat Lunges", "Leg Circles (Right Leg)", "Leg Circles (Left Leg)"));
         Routine legs = new Routine("Leg Shape and Tone",
-                "Do each move for 1 minute and rest after each move for 15 seconds.", "Legs", legsMoves, 3);
+                "Do each move for 1 minute and rest after each move for 15 seconds.", "Legs", legsMoves, 3); 
 
         ArrayList<String> abMoves = new ArrayList<String>(Arrays.asList("One Arm Rollup", "Weighted Russian Twists",
                 "Weighted Toe Reach", "Weighted Knee Drives (Left Leg)", "Weighted Knee Drives (Right Leg)",
@@ -49,7 +59,7 @@ public class predefinedRoutineServlet extends HttpServlet {
                 "Straight Leg Lift (Right Leg)", "Pointed Butt Lift (Right Leg)", "Fire Hydrant (Right Leg)",
                 "Straight Leg Lift (Left Leg)", "Pointed Butt Lift (Left Leg)", "Fire Hydrant (Left Leg)"));
         Routine glutes = new Routine("Glute Shape and Tone",
-                "Do each move for 1 minute and rest for 30 seconds after each set", "Glutes", glutesMoves, 3);
+                "Do each move for 1 minute and rest for 30 seconds after each set.", "Glutes", glutesMoves, 3); 
 
         ArrayList<String> backShoulderMoves = new ArrayList<String>(Arrays.asList("Walnut Crushers", "Bird Dog Pulses",
                 "Parachuter", "Flying Bird Dog", "Breast Stroke", "Grasshopper"));
