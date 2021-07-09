@@ -16,33 +16,25 @@
  * On button click, show more details about the workout
  */
 async function showWorkoutDetails(elementContainer, ID) {
-    // Associate ID with specific routine, hard coded for now
-    /**
-     * Cardio - 0
-     * Arms - 1
-     * Legs - 2
-     * Abs - 3
-     * Glutes - 4
-     * Back/Shoulder - 5
-     */
+    
     const responseFromServer = await fetch('/showRoutine');
     const routineList = await responseFromServer.json();
 
     const routineContainer = document.getElementById(elementContainer);
 
     var routinesWithDetails = "";
-/*
+
     for (var i = 0; i < routineList.length; i++) {
-        if (routineList[i].routineType == ID) {
+        if (routineList[i].type == ID) {
 
             var moveSet = "";
 
             for (var k = 0; k < routineList[i].moveSet.length; k++) {
-                moveSet = moveSet + routineList.moveSet[k] + "\n";
+                moveSet = moveSet + routineList[i].moveSet[k] + "\n";
             }
             routinesWithDetails = routinesWithDetails + "Title: " + routineList[i].title + "\nDescription: " + routineList[i].description + "\nSets: " + routineList[i].sets + "\nMove Set:\n" + moveSet + "\n\n";
         }
-    } */
+    }
 
     console.log(routineList);
 
