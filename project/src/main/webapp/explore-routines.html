@@ -1,0 +1,175 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+
+    <!-- Custom CSS -->
+    <link href="style.css" rel="stylesheet">
+
+    <!-- JS -->
+    <script src="site-script.js"></script>
+
+    <title>Explore Routine</title>
+</head>
+
+<body>
+    <!-- Image and text for top navbar -->
+    <nav class="navbar navbar-dark bg-info">
+        <a class="navbar-brand" href="#">
+            <img src="/images/dumbbell.png" width="30" height="30" class="d-inline-block align-top" alt="">
+            FitMe
+        </a>
+    </nav>
+
+    <div class="container-fluid">
+        <div class="row">
+            <nav id="sidebarMenu" class="col-md-3 col-lg-2 d-md-block bg-light sidebar collapse">
+                <div class="position-sticky pt-3">
+                    <ul class="nav flex-column">
+                        <li class="nav-item">
+                            <a class="nav-link" aria-current="page" href="dashboard-summary.html">
+                                <span data-feather="Summary"></span>
+                                Summary
+                            </a>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                                data-bs-toggle="dropdown" aria-expanded="false">Routines</a>
+                            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                <li><a class="dropdown-item" href="view-routines.html">View My Routines</a></li>
+                                <li>
+                                    <div class="dropdown-divider"></div>
+                                </li>
+                                <li><a class="dropdown-item" href="create-routine.html">Create Routine</a></li>
+                                <li>
+                                    <div class="dropdown-divider"></div>
+                                </li>
+                                <li><a class="dropdown-item active" href="explore-routines.html">Explore Routines</a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="take-a-quiz.html">
+                                <span data-feather="take-a-quiz"></span>
+                                Take a Quiz
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+
+            <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
+                <div
+                    class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+                    <h1>Explore Routines</h1>
+                </div>
+
+                <div
+                    class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+                    <h4>Cardio Workout Routines</h4>
+                </div>
+                <div>
+                    <p>Head to Toe Cardio</p>
+                    <div id="cardio-container"></div>
+                    <br>
+                    <div class="btn-group me-2" role="group" aria-label="Second group">
+                        <button type="button" class="btn btn-info" onclick="showWorkoutDetails('cardio-container', 0)">Show More</button>
+                        <button type="button" class="btn btn-info" onclick="hideWorkoutDetails('cardio-container')">Hide</button>
+                    </div>
+                    
+                </div>
+                <hr/>
+                <div
+                    class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+                    <h4>Arm Workout Routines</h4>
+                </div>
+                <div>
+                    <p>Extreme Arm Toner</p>
+                    <div id="arm-container"></div>
+                    <br>
+                    <div class="btn-group me-2" role="group" aria-label="Second group">
+                        <button type="button" class="btn btn-info" onclick="showWorkoutDetails('arm-container', 1)">Show More</button>
+                        <button type="button" class="btn btn-info" onclick="hideWorkoutDetails('arm-container')">Hide</button>
+                    </div>
+                </div>
+                <hr/>
+
+                <div
+                    class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+                    <h4>Leg Workout Routines</h4>
+                </div>
+                <div>
+                    <p>Leg Shape and Tone</p>
+                    <div id="leg-container"></div>
+                    <div class="btn-group me-2" role="group" aria-label="Second group">
+                        <button type="button" class="btn btn-info" onclick="showWorkoutDetails('leg-container', 2)">Show More</button>
+                        <button type="button" class="btn btn-info" onclick="hideWorkoutDetails('leg-container')">Hide</button>
+                    </div>
+                </div>
+                <hr/>
+
+                <div
+                    class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+                    <h4>Abdomen Workout Routines</h4>
+                </div>
+                <div>
+                    <p>Extreme Ab Toner</p>
+                    <div id="abdomen-container"></div>
+                    <br>
+                    <div class="btn-group me-2" role="group" aria-label="Second group">
+                        <button type="button" class="btn btn-info" onclick="showWorkoutDetails('abdomen-container', 3)">Show More</button>
+                        <button type="button" class="btn btn-info" onclick="hideWorkoutDetails('abdomen-container')">Hide</button>
+                    </div>
+                </div>
+                <hr/>
+
+                <div
+                    class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+                    <h4>Glute Workout Routines</h4>
+                </div>
+                <div>
+                    <p>Glute Shape and Tone</p>
+                    <div id="glute-container"></div>
+                    <br>
+                    <div class="btn-group me-2" role="group" aria-label="Second group">
+                        <button type="button" class="btn btn-info" onclick="showWorkoutDetails('glute-container', 4)">Show More</button>
+                        <button type="button" class="btn btn-info" onclick="hideWorkoutDetails('glute-container')">Hide</button>
+                    </div>
+                </div>
+                <hr/>
+
+                <div
+                    class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+                    <h4>Back/Shoulder Workout Routines</h4>
+                </div>
+                <div>
+                    <p>Ultimate Back/Shoulder Workout</p>
+                    <div id="backshoulder-container"></div>
+                    <br>
+                    <div class="btn-group me-2" role="group" aria-label="Second group">
+                        <button type="button" class="btn btn-info" onclick="showWorkoutDetails('backshoulder-container', 5)">Show More</button>
+                        <button type="button" class="btn btn-info" onclick="hideWorkoutDetails('backshoulder-container')">Hide</button>
+                    </div>
+                </div>
+
+            </main>
+
+        </div>
+
+
+        <!-- Javascript for Bootstrap 5 -->
+        <!-- Bootstrap Bundle with Popper -->
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+            crossorigin="anonymous"></script>
+
+</body>
+
+</html>
