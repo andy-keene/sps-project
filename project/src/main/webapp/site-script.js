@@ -29,17 +29,24 @@ async function showWorkoutDetails(elementContainer, ID) {
     const routineList = await responseFromServer.json();
 
     const routineContainer = document.getElementById(elementContainer);
-    const routine = routineList[ID];
 
-    var moveSet = "";
+    var routinesWithDetails = "";
+/*
+    for (var i = 0; i < routineList.length; i++) {
+        if (routineList[i].routineType == ID) {
 
-    for (var i = 0; i < routine.moveSet.length; i++) {
-        moveSet = moveSet + routine.moveSet[i] + "\n";
-    }
+            var moveSet = "";
 
-    routineDetails = "Description: " + routine.description + "\nSets: " + routine.sets + "\nMove Set:\n" + moveSet;
+            for (var k = 0; k < routineList[i].moveSet.length; k++) {
+                moveSet = moveSet + routineList.moveSet[k] + "\n";
+            }
+            routinesWithDetails = routinesWithDetails + "Title: " + routineList[i].title + "\nDescription: " + routineList[i].description + "\nSets: " + routineList[i].sets + "\nMove Set:\n" + moveSet + "\n\n";
+        }
+    } */
 
-    routineContainer.innerText = routineDetails;
+    console.log(routineList);
+
+    routineContainer.innerText = routinesWithDetails;
 }
 
 /**
