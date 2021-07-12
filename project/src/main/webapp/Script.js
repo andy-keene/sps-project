@@ -47,8 +47,26 @@ document.addEventListener("DOMContentLoaded", () => {
         e.preventDefault();
 
         //Perform Fetch Login..
-
-        setFormMessage(loginForm, "error", "Invalid username/password combination");
+        const data = {
+            userName: document.getElementById('loginUser').value,
+            userPassword: document.getElementById('loginPassword').value
+        };
+        fetch('/user-retrieval', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json', },
+            body: JSON.stringify(data),
+        })
+            .then(response => response.json())
+            .then(data => {
+                console.log('Success:', data.id);
+                localStorage.setItem("user_id", data.id.toString());
+                //replace with redirect to dashboard
+                //window.location.replace("https://summer21-sps-1.uc.r.appspot.com/dashboard-summary")
+            })
+            .catch((error) => {
+                console.error('Error:', error);
+                setFormMessage(loginForm, "error", "Invalid username/password combination");
+            });
     });
 
     // error checking for username value
@@ -77,3 +95,4 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     });
 });
+
