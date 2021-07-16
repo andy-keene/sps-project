@@ -43,15 +43,15 @@ public class formHandlerServlet<User> extends HttpServlet {
 
 
         // Print the value so you can see it in the server logs.
-        System.out.println("You submitted: " + userName);
-        System.out.println("You submitted: " + userEmail);
-        System.out.println("You submitted: " + userPassword);
+        System.out.println("You submitted: " + userName
+                          +"\nYou submitted: " + userEmail
+                          +"\nYou submitted: " + userPassword);
        
 
         // Write the value to the response so the user can see it.
-        response.getWriter().println("You submitted: " + userName);
-        response.getWriter().println("You submitted: " + userEmail);
-        response.getWriter().println("You submitted: " + userPassword);
+        response.getWriter().println("You submitted: " + userName
+                                    +"\nYou submitted: " + userEmail
+                                    +"\nYou submitted: " + userPassword);
    
         
         //Redirects back to the linked webpage
