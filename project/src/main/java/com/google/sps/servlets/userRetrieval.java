@@ -1,13 +1,12 @@
 package com.google.sps.servlets;
+
 import com.google.cloud.datastore.Datastore;
 import com.google.cloud.datastore.DatastoreOptions;
 import com.google.cloud.datastore.Entity;
 import com.google.cloud.datastore.Query;
 import com.google.cloud.datastore.QueryResults;
-import com.google.cloud.datastore.StructuredQuery.CompositeFilter;
 import com.google.cloud.datastore.StructuredQuery.PropertyFilter;
 import com.google.gson.Gson;
-import com.google.gson.JsonObject;
 import com.google.sps.data.User;
 import java.io.IOException;
 import javax.servlet.annotation.WebServlet;
@@ -20,30 +19,38 @@ public class userRetrieval extends HttpServlet {
 
     @Override
     public void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException {
+        // Retrieve user input data from js file
         User inputUser = new Gson().fromJson(request.getReader(), User.class);
-        String user = inputUser.getuserName();
-        String password = inputUser.getuserPassword();
+        String userInput = inputUser.getuserName();
+        String passwordInput = inputUser.getuserPassword();
 
-        Datastore db = DatastoreOptions.getDefaultInstance().getService();
+        // Search input for @ symbol and change input type to email if necessary.
+        // This will affect the query builder.
+        String inputType = "signupUsername";
+        if (userInput.contains("@"))
+            inputType = "signupEmail";
 
-        Query<Entity> query = Query
-                .newEntityQueryBuilder()
-                .setKind("User")
-                .setFilter(CompositeFilter
-                    .and(PropertyFilter.eq("signupUsername", user), PropertyFilter.eq("signupPassword", password)))
-                .build();
-        QueryResults<Entity> queryResult = db.run(query);
+        Datastore dataStore = DatastoreOptions.getDefaultInstance().getService();
+        Query<Entity> query = Query.newEntityQueryBuilder().setKind("User")
+                .setFilter(PropertyFilter.eq(inputType, userInput)).build();
+        QueryResults<Entity> queryResults = dataStore.run(query);
 
-        if (queryResult.hasNext()) {
-            Entity entity = queryResult.next();
-            long id = entity.getKey().getId();
-            JsonObject retUser = new JsonObject();
-            response.setContentType("application/json;");
-            retUser.addProperty("id", id);
-            response.getWriter().println(retUser);
-        } else {
-            response.setContentType("application/json;");
-            response.getWriter().println("{\"user\": \"not in the database\"}");
+        // Checks query results to see if an entity exists based on the username or
+        // email given.
+        // It then checks if the input password matches the password associated with the
+        // found entity.
+        if (queryResults.hasNext()) {
+            String responseId;
+            Entity user = queryResults.next();
+            String pass = user.getString("signupPassword").replaceAll("\"", "");
+            String userId = user.getKey().getId().toString();
+
+            // Checks if input and datastore passwords match.
+            if (pass.equals(passwordInput)) {
+                response.setContentType("application/json;");
+                responseId = "{\"userId\":" + userId + " }";
+                response.getWriter().println(responseId);
+            }
         }
     }
 }
