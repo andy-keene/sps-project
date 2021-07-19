@@ -69,4 +69,23 @@ function startWorkout(routineTitle) {
 
 function generateWorkout() {
     console.log(localStorage.getItem("routine_title"));
+
+    const workoutContainer = document.getElementById('workout-container');
+    const routineTitle = localStorage.getItem("routine_title");
+
+    const params = new URLSearchParams();
+    params.append('routineTitle', routineTitle);
+
+    fetch('/generateRoutine', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(routineTitle)
+    }).then(response => response.json())
+        .then((routine) => {
+            console.log(routine);
+        });
+
+
 }

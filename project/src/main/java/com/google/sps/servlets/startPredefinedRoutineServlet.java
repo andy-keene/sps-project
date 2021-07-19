@@ -24,42 +24,54 @@ import javax.servlet.http.HttpServletResponse;
 import com.google.gson.Gson;
 
 /** Handles requests sent to the /showRoutine URL */
-@WebServlet("/startRoutine")
+@WebServlet("/generateRoutine")
 public class startPredefinedRoutineServlet extends HttpServlet {
 
     @Override
-    public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException {
+    public void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException {
 
-        // For the time being, the Routines are hard coded into the servlet file
-        // Can be improved upon
-
-        ArrayList<Routine> routines = new ArrayList<Routine>();
+        String workoutTitle = new Gson().fromJson(request.getReader(), String.class);
+        PredefinedRoutineGifPair routineWithGifs = new PredefinedRoutineGifPair();
+        System.out.println(workoutTitle);
 
         Datastore datastore = DatastoreOptions.getDefaultInstance().getService();
-        Query<Entity> query = Query.newEntityQueryBuilder().setKind("Predefined-Routine").setOrderBy(OrderBy.desc("routineTitle"))
-                .build();
+        Query<Entity> query = Query.newEntityQueryBuilder().setKind("Predefined-Routine")
+                .setOrderBy(OrderBy.desc("routineTitle")).build();
         QueryResults<Entity> results = datastore.run(query);
 
         while (results.hasNext()) {
             Entity entity = results.next();
 
             String title = entity.getString("routineTitle");
-            String type = entity.getString("routineType");
-            String description = entity.getString("routineDescription");
-            int sets = convertStringToInt(entity.getString("setNumber"));
-            ArrayList<String> moves = convertStringItemsToArrayList(entity.getString("moveSet"));
+            System.out.println(title);
 
-            Routine currentRoutine = new Routine(title, description, type, moves, sets);
-            routines.add(currentRoutine);
+            if (title.equals(workoutTitle)) {
+
+                System.out.println("Match!");
+
+                String type = entity.getString("routineType");
+                String description = entity.getString("routineDescription");
+                int sets = convertStringToInt(entity.getString("setNumber"));
+                ArrayList<String> moves = convertStringItemsToArrayList(entity.getString("moveSet"));
+
+                Routine currentRoutine = new Routine(title, description, type, moves, sets);
+                ArrayList<String> gifs = convertStringItemsToArrayList(entity.getString("gifSet"));
+
+                routineWithGifs.routineObj = currentRoutine;
+                routineWithGifs.gifs = gifs;
+
+            }
         }
 
-        String json = convertToJson(routines);
+        String json = convertToJson(routineWithGifs);
 
         response.setContentType("application/json;");
         response.getWriter().println(json);
+        System.out.println(json);
+
     }
 
-    private String convertToJson(ArrayList<Routine> data) {
+    private String convertToJson(PredefinedRoutineGifPair data) {
         Gson gson = new Gson();
         return gson.toJson(data); // return a json object
     }
