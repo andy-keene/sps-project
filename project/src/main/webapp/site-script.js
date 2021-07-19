@@ -41,7 +41,13 @@ async function showWorkoutDetails(elementContainer, ID) {
 
             var routineName = routineList[i].title;
             routineButton.onclick = function () { return startWorkout(routineName) };
+
             routineContainer.appendChild(routineButton);
+
+            var emptySpace = document.createElement("p");
+            emptySpace.innerText = "\n\n";
+
+            routineContainer.appendChild(emptySpace);
         }
     }
 
@@ -70,8 +76,10 @@ function startWorkout(routineTitle) {
 function generateWorkout() {
     console.log(localStorage.getItem("routine_title"));
 
-    const workoutContainer = document.getElementById('workout-container');
+    var workoutContainer = document.getElementById('workout-container');
     const routineTitle = localStorage.getItem("routine_title");
+
+    console.log(workoutContainer);
 
     const params = new URLSearchParams();
     params.append('routineTitle', routineTitle);
@@ -85,6 +93,57 @@ function generateWorkout() {
     }).then(response => response.json())
         .then((routine) => {
             console.log(routine);
+
+            var headerTitle = document.createElement("h3");
+            headerTitle.innerText = routine.routineObj.title + "\n";
+
+            var headerDescription = document.createElement("h5");
+            headerDescription.innerText = routine.routineObj.description + "\n";
+
+            var headerSets = document.createElement("h5");
+            headerSets.innerText = "Sets: " + routine.routineObj.sets + "\n";
+
+            console.log(headerTitle);
+            console.log(headerDescription);
+            console.log(headerSets);
+
+            workoutContainer.appendChild(headerTitle);
+            workoutContainer.appendChild(headerDescription);
+            workoutContainer.appendChild(headerSets);
+
+            for (var i = 0; i < routine.routineObj.moveSet.length; i++) {
+
+                var container = document.createElement("div");
+                container.setAttribute("class", "container");
+
+                var row = document.createElement("div");
+                row.setAttribute("class", "row");
+
+                var columnOne = document.createElement("div");
+                columnOne.setAttribute("class", "col-sm");
+
+                var columnTwo = document.createElement("div");
+                columnTwo.setAttribute("class", "col-sm");
+
+                var move = document.createElement("p");
+                move.innerText = routine.routineObj.moveSet[i];
+
+                var moveGif = document.createElement("img");
+                moveGif.setAttribute("src", "/images/" + routine.gifs[i]);
+                moveGif.setAttribute("width", "80");
+                moveGif.setAttribute("height", "80");
+
+                columnOne.appendChild(move);
+                columnTwo.appendChild(moveGif);
+                row.appendChild(columnOne);
+                row.appendChild(columnTwo);
+                container.appendChild(row);
+                console.log(container);
+                workoutContainer.appendChild(container);
+
+            }
+
+
         });
 
 

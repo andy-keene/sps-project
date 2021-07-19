@@ -23,7 +23,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.google.gson.Gson;
 
-/** Handles requests sent to the /showRoutine URL */
+/** Handles requests sent to the /generateRoutine URL */
 @WebServlet("/generateRoutine")
 public class startPredefinedRoutineServlet extends HttpServlet {
 
@@ -32,7 +32,7 @@ public class startPredefinedRoutineServlet extends HttpServlet {
 
         String workoutTitle = new Gson().fromJson(request.getReader(), String.class);
         PredefinedRoutineGifPair routineWithGifs = new PredefinedRoutineGifPair();
-        System.out.println(workoutTitle);
+        //System.out.println(workoutTitle);
 
         Datastore datastore = DatastoreOptions.getDefaultInstance().getService();
         Query<Entity> query = Query.newEntityQueryBuilder().setKind("Predefined-Routine")
@@ -43,11 +43,11 @@ public class startPredefinedRoutineServlet extends HttpServlet {
             Entity entity = results.next();
 
             String title = entity.getString("routineTitle");
-            System.out.println(title);
+            //System.out.println(title);
 
             if (title.equals(workoutTitle)) {
 
-                System.out.println("Match!");
+                // System.out.println("Match!");
 
                 String type = entity.getString("routineType");
                 String description = entity.getString("routineDescription");
@@ -67,7 +67,7 @@ public class startPredefinedRoutineServlet extends HttpServlet {
 
         response.setContentType("application/json;");
         response.getWriter().println(json);
-        System.out.println(json);
+        //System.out.println(json);
 
     }
 
