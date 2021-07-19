@@ -1,3 +1,10 @@
+#viewmode {
+    position: absolute;
+    width: 100%;
+    overflow-y: scroll;
+    height:100px;
+}
+
 body{
     --color-primary: #2E9CCA;
     --color-primary-dark: rgb(41, 109, 155);

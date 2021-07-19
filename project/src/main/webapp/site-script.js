@@ -13,32 +13,37 @@
 // limitations under the License.
 
 /**
- * On button click, show more details about the workout
+ * On button click, show specific workouts in each section
  */
 async function showWorkoutDetails(elementContainer, ID) {
-    
+
     const responseFromServer = await fetch('/showRoutine');
     const routineList = await responseFromServer.json();
 
     const routineContainer = document.getElementById(elementContainer);
 
-    var routinesWithDetails = "";
+    var routineTitles = "";
 
     for (var i = 0; i < routineList.length; i++) {
         if (routineList[i].type == ID) {
 
-            var moveSet = "";
+            // var moveSet = "";
 
-            for (var k = 0; k < routineList[i].moveSet.length; k++) {
-                moveSet = moveSet + routineList[i].moveSet[k] + "\n";
-            }
-            routinesWithDetails = routinesWithDetails + "Title: " + routineList[i].title + "\nDescription: " + routineList[i].description + "\nSets: " + routineList[i].sets + "\nMove Set:\n" + moveSet + "\n\n";
+            // for (var k = 0; k < routineList[i].moveSet.length; k++) {
+            //    moveSet = moveSet + routineList[i].moveSet[k] + "\n";
+            // }
+
+            var routineButton = document.createElement("button");
+
+            routineButton.innerText = routineList[i].title;
+            routineButton.setAttribute("type", "button");
+            routineButton.setAttribute("class", "butn btn-info");
+            routineButton.onclick = function () { return startWorkout(routineList[i].title) };
+            routineContainer.appendChild(routineButton);
         }
     }
 
     console.log(routineList);
-
-    routineContainer.innerText = routinesWithDetails;
 }
 
 /**
@@ -49,3 +54,7 @@ function hideWorkoutDetails(elementContainer) {
     const routineContainer = document.getElementById(elementContainer);
     routineContainer.innerText = "";
 }
+
+/**
+ * Start a predefined workout routine by redirecting to a separate workout page to view all details/gifs of moves
+ */

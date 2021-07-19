@@ -21,153 +21,156 @@
 
 <body>
 
-    <div class="card" style="width: 65rem;">
-        <!-- Image and text for top navbar -->
-        <nav class="navbar navbar-dark bg-info">
-            <a class="navbar-brand" href="#">
-                <img src="/images/dumbbell.png" width="30" height="30" class="d-inline-block align-top" alt="">
-                FitMe
-            </a>
-        </nav>
+    <div id="scroll-view">
 
-        <div class="container-fluid bg-fix">
-            <div class="row">
-                <nav id="sidebarMenu" class="col-md-3 col-lg-2 d-md-block bg-light sidebar collapse">
-                    <div class="position-sticky pt-3">
-                        <ul class="nav flex-column">
-                            <li class="nav-item">
-                                <a class="nav-link" aria-current="page" href="dashboard-summary.html">
-                                    <span data-feather="Summary"></span>
-                                    Summary
-                                </a>
-                            </li>
-                            <li class="nav-item dropdown">
-                                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
-                                    data-bs-toggle="dropdown" aria-expanded="false">Routines</a>
-                                <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                    <li><a class="dropdown-item" href="view-routines.html">View My Routines</a></li>
-                                    <li>
-                                        <div class="dropdown-divider"></div>
-                                    </li>
-                                    <li><a class="dropdown-item" href="create-routine.html">Create Routine</a></li>
-                                    <li>
-                                        <div class="dropdown-divider"></div>
-                                    </li>
-                                    <li><a class="dropdown-item active" href="explore-routines.html">Explore
-                                            Routines</a>
-                                    </li>
-                                </ul>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="take-a-quiz.html">
-                                    <span data-feather="take-a-quiz"></span>
-                                    Take a Quiz
-                                </a>
-                            </li>
-                        </ul>
-                    </div>
-                </nav>
+        <div class="card" style="width: 65rem;">
+            <!-- Image and text for top navbar -->
+            <nav class="navbar navbar-dark bg-info">
+                <a class="navbar-brand" href="#">
+                    <img src="/images/dumbbell.png" width="30" height="30" class="d-inline-block align-top" alt="">
+                    FitMe
+                </a>
+            </nav>
 
-                <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
-                    <div
-                        class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
-                        <h1>Explore Routines</h1>
-                    </div>
+            <div class="container-fluid bg-fix">
+                <div class="row">
+                    <nav id="sidebarMenu" class="col-md-3 col-lg-2 d-md-block bg-light sidebar collapse">
+                        <div class="position-sticky pt-3">
+                            <ul class="nav flex-column">
+                                <li class="nav-item">
+                                    <a class="nav-link" aria-current="page" href="dashboard-summary.html">
+                                        <span data-feather="Summary"></span>
+                                        Summary
+                                    </a>
+                                </li>
+                                <li class="nav-item dropdown">
+                                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                                        data-bs-toggle="dropdown" aria-expanded="false">Routines</a>
+                                    <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                        <li><a class="dropdown-item" href="view-routines.html">View My Routines</a></li>
+                                        <li>
+                                            <div class="dropdown-divider"></div>
+                                        </li>
+                                        <li><a class="dropdown-item" href="create-routine.html">Create Routine</a></li>
+                                        <li>
+                                            <div class="dropdown-divider"></div>
+                                        </li>
+                                        <li><a class="dropdown-item active" href="explore-routines.html">Explore
+                                                Routines</a>
+                                        </li>
+                                    </ul>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="take-a-quiz.html">
+                                        <span data-feather="take-a-quiz"></span>
+                                        Take a Quiz
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </nav>
 
-                    <div
-                        class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
-                        <h4>Cardio Workout Routines</h4>
-                    </div>
-                    <div>
-                        <div id="cardio-container"></div>
-                        <br>
-                        <div class="btn-group me-2" role="group" aria-label="Second group">
-                            <button type="button" class="btn btn-info"
-                                onclick="showWorkoutDetails('cardio-container', 'cardio')">Show Routines</button>
-                            <button type="button" class="btn btn-info"
-                                onclick="hideWorkoutDetails('cardio-container')">Hide Routines</button>
+                    <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
+                        <div
+                            class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+                            <h1>Explore Routines</h1>
                         </div>
 
-                    </div>
-                    <hr />
-                    <div
-                        class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
-                        <h4>Arm Workout Routines</h4>
-                    </div>
-                    <div>
-                        <div id="arm-container"></div>
-                        <br>
-                        <div class="btn-group me-2" role="group" aria-label="Second group">
-                            <button type="button" class="btn btn-info"
-                                onclick="showWorkoutDetails('arm-container', 'arms')">Show Routines</button>
-                            <button type="button" class="btn btn-info"
-                                onclick="hideWorkoutDetails('arm-container')">Hide Routines</button>
+                        <div
+                            class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+                            <h4>Cardio Workout Routines</h4>
                         </div>
-                    </div>
-                    <hr />
+                        <div>
+                            <div id="cardio-container"></div>
+                            <br>
+                            <div class="btn-group me-2" role="group" aria-label="Second group">
+                                <button type="button" class="btn btn-info"
+                                    onclick="showWorkoutDetails('cardio-container', 'cardio')">Show Routines</button>
+                                <button type="button" class="btn btn-info"
+                                    onclick="hideWorkoutDetails('cardio-container')">Hide Routines</button>
+                            </div>
 
-                    <div
-                        class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
-                        <h4>Leg Workout Routines</h4>
-                    </div>
-                    <div>
-                        <div id="leg-container"></div>
-                        <div class="btn-group me-2" role="group" aria-label="Second group">
-                            <button type="button" class="btn btn-info"
-                                onclick="showWorkoutDetails('leg-container', 'legs')">Show Routines</button>
-                            <button type="button" class="btn btn-info"
-                                onclick="hideWorkoutDetails('leg-container')">Hide Routines</button>
                         </div>
-                    </div>
-                    <hr />
+                        <hr />
+                        <div
+                            class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+                            <h4>Arm Workout Routines</h4>
+                        </div>
+                        <div>
+                            <div id="arm-container"></div>
+                            <br>
+                            <div class="btn-group me-2" role="group" aria-label="Second group">
+                                <button type="button" class="btn btn-info"
+                                    onclick="showWorkoutDetails('arm-container', 'arms')">Show Routines</button>
+                                <button type="button" class="btn btn-info"
+                                    onclick="hideWorkoutDetails('arm-container')">Hide Routines</button>
+                            </div>
+                        </div>
+                        <hr />
 
-                    <div
-                        class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
-                        <h4>Abdomen Workout Routines</h4>
-                    </div>
-                    <div>
-                        <div id="abdomen-container"></div>
-                        <br>
-                        <div class="btn-group me-2" role="group" aria-label="Second group">
-                            <button type="button" class="btn btn-info"
-                                onclick="showWorkoutDetails('abdomen-container', 'abs')">Show Routines</button>
-                            <button type="button" class="btn btn-info"
-                                onclick="hideWorkoutDetails('abdomen-container')">Hide Routines</button>
+                        <div
+                            class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+                            <h4>Leg Workout Routines</h4>
                         </div>
-                    </div>
-                    <hr />
+                        <div>
+                            <div id="leg-container"></div>
+                            <div class="btn-group me-2" role="group" aria-label="Second group">
+                                <button type="button" class="btn btn-info"
+                                    onclick="showWorkoutDetails('leg-container', 'legs')">Show Routines</button>
+                                <button type="button" class="btn btn-info"
+                                    onclick="hideWorkoutDetails('leg-container')">Hide Routines</button>
+                            </div>
+                        </div>
+                        <hr />
 
-                    <div
-                        class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
-                        <h4>Glute Workout Routines</h4>
-                    </div>
-                    <div>
-                        <div id="glute-container"></div>
-                        <br>
-                        <div class="btn-group me-2" role="group" aria-label="Second group">
-                            <button type="button" class="btn btn-info"
-                                onclick="showWorkoutDetails('glute-container', 'glutes')">Show Routines</button>
-                            <button type="button" class="btn btn-info"
-                                onclick="hideWorkoutDetails('glute-container')">Hide Routines</button>
+                        <div
+                            class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+                            <h4>Abdomen Workout Routines</h4>
                         </div>
-                    </div>
-                    <hr />
+                        <div>
+                            <div id="abdomen-container"></div>
+                            <br>
+                            <div class="btn-group me-2" role="group" aria-label="Second group">
+                                <button type="button" class="btn btn-info"
+                                    onclick="showWorkoutDetails('abdomen-container', 'abs')">Show Routines</button>
+                                <button type="button" class="btn btn-info"
+                                    onclick="hideWorkoutDetails('abdomen-container')">Hide Routines</button>
+                            </div>
+                        </div>
+                        <hr />
 
-                    <div
-                        class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
-                        <h4>Back/Shoulder Workout Routines</h4>
-                    </div>
-                    <div>
-                        <div id="backshoulder-container"></div>
-                        <br>
-                        <div class="btn-group me-2" role="group" aria-label="Second group">
-                            <button type="button" class="btn btn-info"
-                                onclick="showWorkoutDetails('backshoulder-container', 'back/shoulder')">Show
-                                Routines</button>
-                            <button type="button" class="btn btn-info"
-                                onclick="hideWorkoutDetails('backshoulder-container')">Hide Routines</button>
+                        <div
+                            class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+                            <h4>Glute Workout Routines</h4>
                         </div>
-                    </div>
+                        <div>
+                            <div id="glute-container"></div>
+                            <br>
+                            <div class="btn-group me-2" role="group" aria-label="Second group">
+                                <button type="button" class="btn btn-info"
+                                    onclick="showWorkoutDetails('glute-container', 'glutes')">Show Routines</button>
+                                <button type="button" class="btn btn-info"
+                                    onclick="hideWorkoutDetails('glute-container')">Hide Routines</button>
+                            </div>
+                        </div>
+                        <hr />
+
+                        <div
+                            class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+                            <h4>Back/Shoulder Workout Routines</h4>
+                        </div>
+                        <div>
+                            <div id="backshoulder-container"></div>
+                            <br>
+                            <div class="btn-group me-2" role="group" aria-label="Second group">
+                                <button type="button" class="btn btn-info"
+                                    onclick="showWorkoutDetails('backshoulder-container', 'back/shoulder')">Show
+                                    Routines</button>
+                                <button type="button" class="btn btn-info"
+                                    onclick="hideWorkoutDetails('backshoulder-container')">Hide Routines</button>
+                            </div>
+                        </div>
+                </div>
             </div>
 
             </main>
