@@ -61,8 +61,7 @@ document.addEventListener("DOMContentLoaded", () => {
         .then(data => {
             console.log('Success:', data);
             localStorage.setItem("user_id", data.userId);            
-            //replace with redirect to dashboard
-            //window.location.replace("https://summer21-sps-1.uc.r.appspot.com/dashboard-summary")
+            window.location.href = "/dashboard-summary.html"
         })
         .catch((error) => {
             console.log(error);

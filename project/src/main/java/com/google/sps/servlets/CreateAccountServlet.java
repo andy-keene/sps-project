@@ -43,10 +43,5 @@ public class CreateAccountServlet<User> extends HttpServlet {
             .set("password", userPassword)
             .build();
         datastore.put(userEntity);
-        
-        // Print values in server logs for testing
-        System.out.println("Email: " + userEmail + "\nUsername: " + userName + "\nPassword: " + userPassword);
-
-        response.sendRedirect("/index.html");  //not sure where to redirect yet
     }
 }
