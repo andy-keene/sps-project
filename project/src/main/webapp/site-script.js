@@ -15,12 +15,15 @@
 /**
  * On button click, show specific workouts in each section
  */
+
 async function showWorkoutDetails(elementContainer, ID) {
 
     const responseFromServer = await fetch('/showRoutine');
     const routineList = await responseFromServer.json();
 
     const routineContainer = document.getElementById(elementContainer);
+
+    routineContainer.innerText = "";
 
     var routineTitles = "";
 
@@ -49,6 +52,16 @@ async function showWorkoutDetails(elementContainer, ID) {
 
             routineContainer.appendChild(emptySpace);
         }
+    }
+
+    var showHideWorkoutButton = document.getElementById(elementContainer+"-button");
+
+    if (routineContainer.style.display === "block") {
+        showHideWorkoutButton.innerText = "Show Routines";
+        routineContainer.style.display = "none";
+    } else {
+        showHideWorkoutButton.innerText = "Hide Routines";
+        routineContainer.style.display = "block";
     }
 
     console.log(routineList);
