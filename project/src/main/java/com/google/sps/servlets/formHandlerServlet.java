@@ -42,17 +42,7 @@ public class formHandlerServlet<User> extends HttpServlet {
             .build();
         datastore.put(userEntity);
 
-        // Print the value so you can see it in the server logs.
-        System.out.println("You submitted: " + userName);
-        System.out.println("You submitted: " + userEmail);
-        System.out.println("You submitted: " + userPassword);
-       
-        // Write the value to the response so the user can see it.
-        response.getWriter().println("You submitted: " + userName);
-        response.getWriter().println("You submitted: " + userEmail);
-        response.getWriter().println("You submitted: " + userPassword);
-   
-        //Redirects back to the linked webpage
-        //response.sendRedirect("http://pabah-sps-summer21.appspot.com/");
+        //Redirects back to dashboard
+        response.sendRedirect("/dashboard-summary.html");
     }
 }
