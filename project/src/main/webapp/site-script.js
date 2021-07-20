@@ -42,8 +42,7 @@ async function showWorkoutDetails(elementContainer, ID) {
             routineButton.setAttribute("type", "button");
             routineButton.setAttribute("class", "butn btn-info");
 
-            var routineName = routineList[i].title;
-            routineButton.onclick = function () { return startWorkout(routineName) };
+            routineButton.onclick = function () { return startWorkout(this) };
 
             routineContainer.appendChild(routineButton);
 
@@ -70,9 +69,9 @@ async function showWorkoutDetails(elementContainer, ID) {
 /**
  * Start a predefined workout routine by redirecting to a separate workout page to view all details/gifs of moves
  */
-function startWorkout(routineTitle) {
+function startWorkout(routine) {
 
-    localStorage.setItem("routine_title", routineTitle);
+    localStorage.setItem("routine_title", routine.innerText);
     window.location.href = "start-workout.html";
 
 }
