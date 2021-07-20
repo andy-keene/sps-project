@@ -16,7 +16,7 @@
 
     <!-- Project-specific properties -->
     <exec.mainClass>com.google.sps.ServerMain</exec.mainClass>
-    <googleCloudProjectId>sgill-sps-summer21</googleCloudProjectId>
+    <googleCloudProjectId>YOUR_PROJECT_ID</googleCloudProjectId>
   </properties>
 
   <dependencies>
