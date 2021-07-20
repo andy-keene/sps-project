@@ -13,7 +13,7 @@
 // limitations under the License.
 
 /**
- * On button click, show specific workouts in each section
+ * On button click, show/hide specific workouts in each section
  */
 
 async function showWorkoutDetails(elementContainer, ID) {
@@ -65,15 +65,6 @@ async function showWorkoutDetails(elementContainer, ID) {
     }
 
     console.log(routineList);
-}
-
-/**
- * On button click, hide extra details about the workout
- */
-
-function hideWorkoutDetails(elementContainer) {
-    const routineContainer = document.getElementById(elementContainer);
-    routineContainer.innerText = "";
 }
 
 /**
@@ -156,6 +147,8 @@ function generateWorkout() {
 
             }
 
+            var startWorkoutButton = document.getElementById("start-workout-button");
+            startWorkoutButton.style.display = "none";
 
         });
 
