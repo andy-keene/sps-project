@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Custom Routines</title>
+    <link rel="stylesheet" href="tempStyle.css">
+</head>
+
+<body>
+    <button id="modal-open">Create routine</button>
+
+    <ol class="container" id="list"></ol>
+
+    <div id="contact-modal" class="modal">
+        <div id="modal-content">
+            <div id="modal-header">
+                <span class="close-modal">&times;</span>
+                <h2>Custom Routines</h2>
+            </div>
+
+            <div id="modal-body">
+                <h3>Create a custom Routine</h3>
+                <form id="new-routine">
+                    <div class="inputField">
+                        <label for="routine-type">Routine Type</label>
+                        <input id="inpValue" type="text" placeholder="e.g: Arm Workout">
+                    </div>
+                    <div class="checklist">
+                        <input id="inpValue1" type="checkbox" name="workout" value="Bicep Curl (Dumbell) 3 Sets">
+                        <label for="inpValue1"> Bicep Curl (Dumbell) 3 Sets</label><br>
+                    </div>
+                    <div class="checklist">
+                        <input id="inpValue2" type="checkbox" name="workout" value="Lying Leg curls(machine) 4 Sets">
+                        <label for="inpValue2"> Lying Leg curls(machine) 4 Sets</label><br>
+                    </div>
+                    <div class="checklist">
+                        <input id="inpValue3" type="checkbox" name="workout" value="Pullups (Bodyweight) 3 Sets">
+                        <label for="inpValue3"> Pullups (Bodyweight) 3 Sets</label><br>
+                    </div>
+                    <div class="checklist">
+                        <input id="inpValue4" type="checkbox" name="workout" value="Squats (Barbell) 4 Sets">
+                        <label for="inpValue4"> Squats (Barbell) 4 Sets</label><br>
+                    </div>
+                    <div class="checklist">
+                        <input id="inpValue5" type="checkbox" name="workout" value="ab wheel(machine) 2 Sets">
+                        <label for="inpValue5"> ab wheel(machine) 2 Sets</label><br>
+                    </div>
+                    <div class="checklist">
+                        <input id="inpValue5" type="checkbox" name="workout" value="bench press (Barbell) 4 Sets">
+                        <label for="inpValue5"> bench press (Barbell) 4 Sets</label><br>
+                    </div>
+                    <div class="checklist">
+                        <input id="inpValue6" type="checkbox" name="workout" value="burpee (Baodyweight) 3 Sets">
+                        <label for="inpValue6"> burpee (Baodyweight) 3 Sets</label><br>
+                    </div>                    
+                    <input id="btn" type="submit" value="Create" onclick="save();" >
+                </form>
+            </div>
+            <div id="modal-footer">
+                <h3>Fit Me</h3>
+
+            </div>
+        </div>
+    </div>
+    </div>
+    <script src="custom-routine.js"></script>
+</body>
+
+</html>
