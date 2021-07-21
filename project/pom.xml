@@ -16,7 +16,7 @@
 
     <!-- Project-specific properties -->
     <exec.mainClass>com.google.sps.ServerMain</exec.mainClass>
-    <googleCloudProjectId>YOUR_PROJECT_ID</googleCloudProjectId>
+    <googleCloudProjectId>sgill-sps-summer21</googleCloudProjectId>
   </properties>
 
   <dependencies>
@@ -130,7 +130,7 @@
         <artifactId>appengine-maven-plugin</artifactId>
         <version>2.2.0</version>
         <configuration>
-          <projectId>${googleCloudProjectId}</projectId>
+          <projectId>summer21-sps-1</projectId>
           <version>1</version>
         </configuration>
       </plugin>
