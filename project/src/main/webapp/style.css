@@ -1,3 +1,10 @@
+#viewmode {
+    position: absolute;
+    width: 100%;
+    overflow-y: scroll;
+    height:100px;
+}
+
 body{
     --color-primary: #2E9CCA;
     --color-primary-dark: rgb(41, 109, 155);
@@ -22,7 +29,7 @@ body{
 
 .container{
     width: 400px;
-    max-width: 400x;
+    max-width: 400px;
     margin: 1rem;
     padding: 2rem;
     box-shadow: 0 0 40px rgba(0, 0, 0, 0.2);
