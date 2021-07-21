@@ -8,7 +8,8 @@ public class Routine {
     ArrayList<String> moveSet;
     int sets;
 
-    public Routine(String routineTitle, String routineDescription, String routineType, ArrayList<String> routineMoveSet, int routineSets) {
+    public Routine(String routineTitle, String routineDescription, String routineType, ArrayList<String> routineMoveSet,
+            int routineSets) {
         title = routineTitle;
         description = routineDescription;
         type = routineType;
