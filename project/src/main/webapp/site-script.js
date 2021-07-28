@@ -141,7 +141,7 @@ function generateWorkout() {
                 row.appendChild(columnOne);
                 row.appendChild(columnTwo);
                 container.appendChild(row);
-                console.log(container);
+
                 workoutContainer.appendChild(container);
 
             }
@@ -149,7 +149,26 @@ function generateWorkout() {
             var startWorkoutButton = document.getElementById("start-workout-button");
             startWorkoutButton.style.display = "none";
 
+            var endButtonDiv = document.createElement("div");
+            endButtonDiv.style.margin = "auto";
+
+            var endWorkoutButton = document.createElement("button");
+            endWorkoutButton.setAttribute("type", "button");
+            endWorkoutButton.setAttribute("class", "butn btn-info");
+            endWorkoutButton.innerText = "End";
+
+            endWorkoutButton.onclick = function () { return toExploreRoutines() };
+
+            endButtonDiv.appendChild(endWorkoutButton);
+
+            workoutContainer.appendChild(endButtonDiv);
+
         });
 
 
+}
+
+// Redirect to Explore Routines page
+function toExploreRoutines() {
+    window.location.href = "explore-routines.html";
 }
