@@ -14,7 +14,7 @@ import org.jsoup.Jsoup;
 import org.jsoup.safety.Whitelist;
 
 @WebServlet("/Create-Account")
-public class CreateAccountServlet<User> extends HttpServlet {
+public class createAccountServlet<User> extends HttpServlet {
 
     @Override
     public void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException {
